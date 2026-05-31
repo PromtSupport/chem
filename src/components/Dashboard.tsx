@@ -40,7 +40,7 @@ export default function Dashboard({ user, onNavigate }: { user: User, onNavigate
             {user.role === 'teacher' ? 'Кабинет Учителя' : `С возвращением, ${user.name}`}
           </h2>
           <p className="text-slate-400 leading-relaxed mb-8 max-w-xl">
-            Инновационная платформа для глубокого изучения химии. Решайте задачи, изучайте интерактивно справочные материалы и улучшайте свои навыки.
+            Платформа для глубокого изучения химии. Решайте задачи, изучайте справочные материалы и улучшайте свои навыки.
           </p>
           <button 
             onClick={() => onNavigate('catalog')}
