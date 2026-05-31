@@ -1,0 +1,45 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() { return true; }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+
+    function isValidTopic(data) {
+      return data.keys().hasAll(['className', 'topicName', 'questions']);
+    }
+
+    function isValidReferenceItem(data) {
+        return data.keys().hasAll(['name', 'formula', 'description']);
+    }
+
+    function isValidStudentResult(data) {
+        return data.keys().hasAll(['studentName', 'topicName', 'score', 'total', 'details', 'date']);
+    }
+
+    match /catalog/{topicId} {
+      allow read: if true;
+      allow create: if isValidTopic(incoming());
+      allow update: if isValidTopic(incoming());
+      allow delete: if true;
+    }
+
+    match /reference/{itemId} {
+      allow read: if true;
+      allow create: if isValidReferenceItem(incoming());
+      allow update: if isValidReferenceItem(incoming());
+      allow delete: if true;
+    }
+
+    match /results/{resultId} {
+      allow read: if true;
+      allow create: if isValidStudentResult(incoming());
+      allow update: if isValidStudentResult(incoming());
+      allow delete: if true;
+    }
+  }
+}

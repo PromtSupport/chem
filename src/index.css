@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-base: #050505;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-cardBg: rgba(255, 255, 255, 0.05);
+  --color-emeraldAccent: #10b981;
+  --color-blueAccent: #60a5fa;
+  --color-dangerAccent: #f43f5e;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: var(--color-base);
+  background-image: radial-gradient(circle at 50% 0%, #111827 0%, #050505 60%);
+  background-attachment: fixed;
+  color: #f8fafc;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+}
+
+.glass-card {
+  @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.04] shadow-lg;
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Base interactive items */
+.premium-hover-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.premium-hover-item:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-45px) scale(0.6); opacity: 0; }
+}
+
+.bubble {
+  animation: float-up 3s infinite ease-in-out;
+  transform-origin: center;
+}
+.b1 { animation-delay: 0.2s; animation-duration: 2.5s; }
+.b2 { animation-delay: 0.8s; animation-duration: 3.2s; }
+.b3 { animation-delay: 1.5s; animation-duration: 2.8s; }
+.b4 { animation-delay: 2.2s; animation-duration: 4s; }

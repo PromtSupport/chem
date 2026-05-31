@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "Topic": {
+      "title": "Topic",
+      "description": "A quiz topic",
+      "type": "object",
+      "properties": {
+        "className": { "type": "string" },
+        "topicName": { "type": "string" },
+        "questions": {
+          "type": "array",
+          "items": { "$ref": "Question" }
+        }
+      },
+      "required": ["className", "topicName", "questions"]
+    },
+    "Question": {
+      "title": "Question",
+      "description": "A single question in a topic",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "q": { "type": "string" },
+        "a": { "type": "string" },
+        "options": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["id", "q", "a", "options"]
+    },
+    "ReferenceItem": {
+      "title": "ReferenceItem",
+      "description": "Item in the reference catalog",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "formula": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["name", "formula", "description"]
+    },
+    "StudentResult": {
+      "title": "StudentResult",
+      "description": "A student's quiz result",
+      "type": "object",
+      "properties": {
+        "studentName": { "type": "string" },
+        "school": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "topicName": { "type": "string" },
+        "score": { "type": "integer" },
+        "total": { "type": "integer" },
+        "details": {
+          "type": "array",
+          "items": { "$ref": "ResultDetail" }
+        },
+        "date": { "type": "string" }
+      },
+      "required": ["studentName", "topicName", "score", "total", "date", "details"]
+    },
+    "ResultDetail": {
+      "title": "ResultDetail",
+      "description": "Result detail for a question",
+      "type": "object",
+      "properties": {
+        "q": { "type": "string" },
+        "correct": { "type": "boolean" },
+        "studentAnswer": { "type": "string" },
+        "correctAnswer": { "type": "string" }
+      },
+      "required": ["q", "correct", "studentAnswer", "correctAnswer"]
+    }
+  },
+  "firestore": {
+    "catalog/{topicId}": {
+      "schema": "Topic",
+      "description": "Topics for quizzes"
+    },
+    "reference/{itemId}": {
+      "schema": "ReferenceItem",
+      "description": "Reference catalog items"
+    },
+    "results/{resultId}": {
+      "schema": "StudentResult",
+      "description": "Quiz results from students"
+    }
+  }
+}
