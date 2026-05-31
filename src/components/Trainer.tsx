@@ -128,9 +128,18 @@ export default function Trainer({ topicId }: { topicId: string }) {
           <div className="inline-flex items-center justify-center p-6 bg-white/5 border border-white/10 text-emeraldAccent rounded-full mb-8 shadow-inner">
             <CirclePlay size={48} />
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-medium tracking-tight text-white mb-4 drop-shadow-sm">{topic.topicName}</h2>
-          <p className="text-white max-w-xl mx-auto mb-10 leading-relaxed text-sm md:text-base">
-            Вас ждет проверочный тест по теме «{topic.topicName}» ({topic.className}). Вопросы перемешиваются случайным образом.
+         <h2 
+  className="text-3xl md:text-4xl font-display font-medium tracking-tight text-white mb-4 drop-shadow-sm"
+  style={{ color: '#ffffff' }}
+>
+  {topic.topicName}
+</h2>
+<p 
+  className="text-white max-w-xl mx-auto mb-10 leading-relaxed text-sm md:text-base"
+  style={{ color: '#ffffff' }}
+>
+  Вас ждет проверочный тест по теме «{topic.topicName}» ({topic.className}). Вопросы перемешиваются случайным образом.
+
           </p>
           <button 
             onClick={startQuiz}
