@@ -19,7 +19,7 @@ export default function Catalog({ onLaunch }: { onLaunch: (topicId: string) => v
         <h2 className="text-3xl md:text-4xl font-display font-medium tracking-tight text-white mb-2 flex items-center gap-3 drop-shadow-sm">
           <FolderOpen className="text-emeraldAccent" size={32} /> Каталог модулей
         </h2>
-        <p className="text-slate-400 max-w-xl">Выберите нужный класс и интересующую вас тему обучения ниже для запуска интерактивного раунда.</p>
+        <p className="text-slate-400 max-w-xl">Выберите нужный класс и интересующую вас тему обучения</p>
       </div>
 
       {catalog.length === 0 ? (
