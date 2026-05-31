@@ -129,12 +129,12 @@ export default function Trainer({ topicId }: { topicId: string }) {
             <CirclePlay size={48} />
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-medium tracking-tight text-white mb-4 drop-shadow-sm">{topic.topicName}</h2>
-          <p className="text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed text-sm md:text-base">
+          <p className="text-white max-w-xl mx-auto mb-10 leading-relaxed text-sm md:text-base">
             Вас ждет проверочный тест по теме «{topic.topicName}» ({topic.className}). Вопросы перемешиваются случайным образом.
           </p>
           <button 
             onClick={startQuiz}
-            className="bg-white text-black font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-2xl hover:bg-slate-200 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] inline-flex items-center gap-2"
+            className="bg-emerald-600 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-2xl hover:bg-emerald-500 transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.2)] inline-flex items-center gap-2"
           >
             Начать раунд <Play size={20} />
           </button>
