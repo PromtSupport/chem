@@ -61,7 +61,7 @@ export default function Constructor() {
   };
   
   const generateHintsWithAI = async () => {
-    if (!selectedTopicId) return alert("Выберите тему сначала");
+    if (!selectedTopicId) return alert("Сначала выберите тему");
     const t = catalog.find(t => t.id === selectedTopicId);
     if (!t) return;
 
@@ -160,10 +160,10 @@ export default function Constructor() {
                     <div>
                         <label className="block text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-2">Класс</label>
                         <select value={topicClass} onChange={e => setTopicClass(e.target.value)} className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all font-medium text-sm shadow-inner overflow-hidden appearance-none">
+                            <option value="8 класс" className="bg-gray-900">8 класс</option>
                             <option value="9 класс" className="bg-gray-900">9 класс</option>
                             <option value="10 класс" className="bg-gray-900">10 класс</option>
                             <option value="11 класс" className="bg-gray-900">11 класс</option>
-                            <option value="Другое" className="bg-gray-900">Другое</option>
                         </select>
                     </div>
                     <button type="submit" className="w-full bg-white text-black font-bold uppercase tracking-wider py-4 px-6 rounded-2xl hover:bg-slate-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.1)] mt-4 text-xs">
