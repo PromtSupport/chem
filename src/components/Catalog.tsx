@@ -49,7 +49,7 @@ export default function Catalog({ onLaunch }: { onLaunch: (topicId: string) => v
                     <button 
                       onClick={() => onLaunch(topic.id)}
                       disabled={topic.questions.length === 0}
-                      className="w-full mt-8 bg-white text-black font-bold py-3.5 text-xs uppercase tracking-widest rounded-2xl hover:bg-slate-200 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full mt-8 bg-emerald-600 text-white font-bold py-3.5 text-xs uppercase tracking-widest rounded-2xl hover:bg-emerald-500 transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Запустить тренажер <Play size={16} />
                     </button>
